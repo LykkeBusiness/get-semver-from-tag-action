@@ -25,7 +25,7 @@ The semver string with no 'v' prefix.
 ```
 name: Get version
 id: semver
-uses: LykkeBusiness/get-semver-from-tag-action@v1.0.0
+uses: LykkeBusiness/get-semver-from-tag-action@v1.0.2
 with:
-    tag: $GITHUB_REF
+    tag: ${{ github.ref }}
 ```
