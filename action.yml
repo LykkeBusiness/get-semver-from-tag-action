@@ -1,0 +1,14 @@
+name: 'Get semver from tag'
+description: 'Gets a semver string from a specified tag'
+inputs:
+  tag:
+    description: 'Tag'
+    required: true
+outputs:
+  prefixed:
+    description: 'Semver string with a v prefix'
+  non-prefixed:
+    description: 'Semver string with no v prefix'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
