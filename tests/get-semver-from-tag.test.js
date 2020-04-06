@@ -29,7 +29,7 @@ describe('Get semver from tag', () => {
 
         await run();
 
-        expect(core.setFailed).toHaveBeenCalledWith('\'tag\' input contains no version');
+        expect(core.setFailed).toHaveBeenCalledWith('\'tag\' input [refs/tags/non-version] contains no version');
         expect(core.setOutput).toHaveBeenCalledTimes(0);
     });
 

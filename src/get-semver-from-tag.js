@@ -5,7 +5,9 @@ async function run() {
 
     try {
 
-        let version = core.getInput('tag').substring(10);
+        const tagInput = core.getInput('tag');
+
+        let version = tagInput.substring(10);
 
         if (semver.valid(version)) {
 
@@ -15,7 +17,7 @@ async function run() {
             core.setOutput('prefixed', `v${version}`);
 
         } else {
-            core.setFailed('\'tag\' input contains no version');
+            core.setFailed(`\'tag\' input [${tagInput}] contains no version`);
         }
 
     } catch (error) {
