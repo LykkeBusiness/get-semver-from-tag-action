@@ -6,6 +6,7 @@ async function run() {
     try {
 
         const tagInput = core.getInput('tag');
+        const allowNoTag = core.getInput('allowNoTag');
 
         let version = tagInput.substring(10);
 
@@ -17,7 +18,12 @@ async function run() {
             core.setOutput('prefixed', `v${version}`);
 
         } else {
-            core.setFailed(`\'tag\' input [${tagInput}] contains no version`);
+            if (allowNoTag === 'true') {
+                core.setOutput('non-prefixed', '0.0.0');
+                core.setOutput('prefixed', 'v0.0.0');
+            } else {
+                core.setFailed(`\'tag\' input [${tagInput}] contains no version`);
+            }
         }
 
     } catch (error) {

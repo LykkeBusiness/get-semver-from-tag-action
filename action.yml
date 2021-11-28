@@ -4,6 +4,9 @@ inputs:
   tag:
     description: 'Tag'
     required: true
+  allowNoTag:
+    description: 'The action will return 0.0.0 when not a tag'
+    default: 'false'
 outputs:
   prefixed:
     description: 'Semver string with a v prefix'

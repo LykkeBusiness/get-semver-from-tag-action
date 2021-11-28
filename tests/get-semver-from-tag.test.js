@@ -19,6 +19,21 @@ describe('Get semver from tag', () => {
         expect(core.setOutput).toHaveBeenNthCalledWith(2, 'prefixed', 'v1.2.3');
     });
 
+    test('Outputs are default', async () => {
+
+        core.getInput = jest
+            .fn()
+            .mockReturnValueOnce('refs/tags/non-version')
+            .mockReturnValueOnce('true');
+
+        core.setOutput = jest.fn();
+
+        await run();
+
+        expect(core.setOutput).toHaveBeenNthCalledWith(1, 'non-prefixed', '0.0.0');
+        expect(core.setOutput).toHaveBeenNthCalledWith(2, 'prefixed', 'v0.0.0');
+    });
+
     test('Action fails elegantly', async () => {
         core.getInput = jest
             .fn()
