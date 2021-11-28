@@ -10,6 +10,11 @@ Gets semver string from a specified tag.
 
 **Required** The tag value.
 
+### `allowNoTag`
+
+**Default**: `false`
+When set to `true` while run on branches and invalid semver tags, will return a default version of `0.0.0`
+
 ## Outputs
 
 ### `prefixed`
