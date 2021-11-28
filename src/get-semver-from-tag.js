@@ -18,7 +18,7 @@ async function run() {
             core.setOutput('prefixed', `v${version}`);
 
         } else {
-            if (allowNoTag === 'true') {
+            if (allowNoTag == 'true') {
                 core.setOutput('non-prefixed', '0.0.0');
                 core.setOutput('prefixed', 'v0.0.0');
             } else {
